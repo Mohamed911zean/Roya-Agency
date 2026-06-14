@@ -1,43 +1,83 @@
-import { ShoppingBag, Coffee, Zap, Users, Building2, Star } from "lucide-react"
-import { FaHome } from "react-icons/fa"
-import { cn } from "@/lib/utils"
+"use client"
+
+import {
+  ShoppingBag,
+  UtensilsCrossed,
+  Hotel,
+  Rocket,
+  Briefcase,
+  UserCircle2,
+  Building2,
+  Home,
+} from "lucide-react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel"
 
 const industries = [
-  { name: "Ecommerce", icon: ShoppingBag, color: "from-orange-400 to-pink-500" },
-  { name: "Real Estate", icon: FaHome, color: "from-blue-400 to-indigo-500" },
-  { name: "Restaurants", icon: Coffee, color: "from-red-400 to-orange-500" },
-  { name: "Hospitality", icon: Building2, color: "from-teal-400 to-emerald-500" },
-  { name: "Startups", icon: Zap, color: "from-purple-400 to-pink-500" },
-  { name: "Service Businesses", icon: Users, color: "from-cyan-400 to-blue-500" },
-  { name: "Personal Brands", icon: Star, color: "from-yellow-400 to-orange-500" },
-  { name: "Corporate Companies", icon: Building2, color: "from-slate-500 to-slate-700" },
+  { name: "Ecommerce", icon: ShoppingBag, desc: "Stores built to sell" },
+  { name: "Real Estate", icon: Home, desc: "Listings that close deals" },
+  { name: "Restaurants", icon: UtensilsCrossed, desc: "Brands people crave" },
+  { name: "Hospitality", icon: Hotel, desc: "Experiences worth booking" },
+  { name: "Startups", icon: Rocket, desc: "Launches with momentum" },
+  { name: "Service Businesses", icon: Briefcase, desc: "Clients on autopilot" },
+  { name: "Personal Brands", icon: UserCircle2, desc: "Influence that converts" },
+  { name: "Corporate Companies", icon: Building2, desc: "Authority at scale" },
 ]
 
 export function Industries() {
   return (
-    <section id="industries" className="py-24 bg-bg-secondary">
+    <section id="industries" className="py-24 bg-bg-secondary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-roya-primary text-center mb-16">Industries We Serve</h2>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {industries.map((industry) => {
-            const Icon = industry.icon
-            return (
-              <div 
-                key={industry.name} 
-                className="group bg-white rounded-2xl p-8 border border-border text-center hover:shadow-xl transition-all cursor-pointer"
-              >
-                <div className={cn(
-                  "w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br flex items-center justify-center",
-                  industry.color
-                )}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-semibold text-roya-primary">{industry.name}</h3>
-              </div>
-            )
-          })}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-roya-primary/10 text-roya-primary rounded-full text-sm font-medium mb-6">
+            Who We Work With
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-roya-primary">Industries We Serve</h2>
         </div>
+
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {industries.map((industry) => {
+              const Icon = industry.icon
+              return (
+                <CarouselItem
+                  key={industry.name}
+                  className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
+                >
+                  <div className="p-1.5">
+                    <div className="group bg-white rounded-2xl p-6 border border-border text-center hover:border-roya-accent/40 hover:shadow-lg transition-all cursor-pointer h-full">
+                      <div className="relative w-16 h-16 mx-auto mb-5">
+                        <div className="absolute inset-0 rounded-full bg-roya-primary/5 group-hover:bg-roya-accent/10 transition-colors" />
+                        <div className="absolute inset-0 rounded-full border border-roya-primary/15 group-hover:border-roya-accent/30 transition-colors" />
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <Icon
+                            className="w-7 h-7 text-roya-primary group-hover:text-roya-accent transition-colors"
+                            strokeWidth={1.75}
+                          />
+                        </div>
+                      </div>
+                      <h3 className="font-semibold text-roya-primary text-sm md:text-base">{industry.name}</h3>
+                      <p className="text-xs text-text-secondary mt-1">{industry.desc}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              )
+            })}
+          </CarouselContent>
+
+          <div className="flex justify-center gap-4 mt-10">
+            <CarouselPrevious className="relative static inset-auto" />
+            <CarouselNext className="relative static inset-auto" />
+          </div>
+        </Carousel>
       </div>
     </section>
   )
