@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react"
+import {FaFacebook , FaInstagram , FaTiktok} from "react-icons/fa"
 
 export function Footer() {
   return (
@@ -26,7 +27,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Technology Partner</h4>
             <div className="bg-gradient-to-r from-reactech-purple to-reactech-pink bg-clip-text text-transparent font-semibold">
-              Reactech Team
+              <a href="https://www.facebook.com/profile.php?id=61581516043531">Reactech Team</a>
             </div>
           </div>
 
@@ -35,6 +36,21 @@ export function Footer() {
             <a href="https://wa.me/201016236711" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
               <MessageCircle className="w-5 h-5" />
               +20 101 623 6711
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61578555195753" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors mt-5">
+              <FaFacebook className="w-5 h-5" />
+              Facebook
+            </a>
+
+            <a href="https://www.instagram.com/roya_agency7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors mt-5">
+              <FaInstagram className="w-5 h-5" />
+              Instagram
+            </a>
+
+             <a href="https://www.tiktok.com/@roya.agency7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors mt-5">
+              <FaTiktok className="w-5 h-5" />
+              Tiktok
             </a>
           </div>
         </div>

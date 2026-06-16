@@ -13,15 +13,7 @@ export function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center gap-16">
         <div className="flex-1 space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-border rounded-full text-sm font-medium text-roya-primary shadow-sm"
-          >
-            <Sparkles className="w-4 h-4 text-roya-accent" />
-            Marketing, Branding & Web — Under One Roof
-          </motion.div>
+         
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}

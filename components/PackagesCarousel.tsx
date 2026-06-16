@@ -12,74 +12,122 @@ import {
 
 const packages = [
   {
-    name: "Start Plan",
-    price: "5000",
-    originalPrice: "8000",
-    description: "Perfect for small businesses and startups",
+    name: "Starter",
+    price: "4500",
+    originalPrice: "6000",
+    description: "Perfect for startups and small businesses",
     popular: false,
     badge: null,
+    budget: "5,000 - 15,000 EGP / month",
     features: [
-      "4 Social Media Posts",
-      "2 Stories",
-      "6 AI-Generated Posts",
-      "1 Video Reel",
-      "Content Writing",
-      "Page Management",
+      "Meta Ads Management (Facebook & Instagram)",
+      "2 Advertising Campaigns Monthly",
+      "Weekly Campaign Optimization",
+      "Audience Targeting Setup",
+      "Meta Pixel Installation & Tracking",
+      "Monthly Performance Report",
+      "WhatsApp Support",
+    ],
+    addons: [
+      "Lead Generation Setup",
+      "WordPress Website Setup",
+      "E-commerce Store Setup",
+      "Professional Landing Page",
+      "Pixel & CPA Tracking",
+      "Product Photography",
+      "Motion Graphics Design",
     ],
   },
   {
-    name: "Gold Plan",
-    price: "8000",
-    originalPrice: "12000",
-    description: "Ideal for growing businesses ready to scale",
+    name: "Professional",
+    price: "15000",
+    originalPrice: "18000",
+    description: "For growing businesses and active stores",
     popular: false,
-    badge: "Best Value",
+    badge: "Business Choice",
+    budget: "50,000 - 150,000 EGP / month",
     features: [
-      "8 Social Media Posts",
-      "4 Stories",
-      "12 AI-Generated Posts",
-      "2 Video Reels",
-      "Content Writing",
-      "Page Management",
-      "1,000 EGP Ad Credit",
+      "Full Campaign Management",
+      "Advanced Audience Retargeting",
+      "Daily Optimization",
+      "Weekly Meetings",
+      "CPA & ROAS Analysis",
+      "Performance Dashboard",
+      "10 Advertising Campaigns Monthly",
+      "3% Success Fee Upon Target Achievement",
+    ],
+    addons: [
+      "Lead Generation Setup",
+      "WordPress Website Setup",
+      "E-commerce Store Setup",
+      "Professional Landing Page",
+      "Pixel & CPA Tracking",
+      "Product Photography",
+      "Motion Graphics Design",
     ],
   },
   {
-    name: "VIP Plan",
-    price: "13000",
-    originalPrice: "20000",
-    description: "Our most comprehensive package for maximum growth",
+    name: "Growth",
+    price: "8500",
+    originalPrice: "10000",
+    description: "Our most requested package",
     popular: true,
     badge: "Most Popular",
+    budget: "15,000 - 50,000 EGP / month",
     features: [
-      "12 Social Media Posts",
-      "6 Stories",
-      "18 AI-Generated Posts",
-      "3 Video Reels",
-      "Content Writing",
-      "Page Management",
-      "2,000 EGP Ad Credit",
+      "Meta Ads Management",
+      "5 Live Campaigns Monthly",
+      "Competitor Analysis",
+      "A/B Testing Strategy",
+      "Retargeting Campaigns",
+      "Campaign Performance Optimization",
+      "Weekly Reporting",
+      "Sales & Results Tracking",
+    ],
+    addons: [
+      "Lead Generation Setup",
+      "WordPress Website Setup",
+      "E-commerce Store Setup",
+      "Professional Landing Page",
+      "Pixel & CPA Tracking",
+      "Product Photography",
+      "Motion Graphics Design",
     ],
   },
   {
-    name: "Premium Plan",
-    price: "22000",
-    originalPrice: "32000",
-    description: "Enterprise-level marketing and development",
+    name: "Enterprise",
+    price: "25000",
+    originalPrice: "30000",
+    description: "For large businesses and brands",
     popular: false,
-    badge: "Full Service",
+    badge: "Enterprise",
+    budget: "150,000+ EGP / month",
     features: [
-      "Unlimited Social Media Posts",
-      "10 Stories",
-      "30 AI-Generated Posts",
-      "5 Video Reels",
-      "Content Writing",
-      "Page Management",
-      "5,000 EGP Ad Credit",
-      "Custom Website Included",
+      "Multi-Platform Advertising Management",
+      "Meta Ads Management",
+      "TikTok Ads Management",
+      "Snapchat Ads Management",
+      "Google Ads Management",
+      "Full Funnel Strategy",
+      "Advanced Tracking System",
+      "Weekly Meetings",
+      "Professional Reporting",
+      "Dedicated Account Manager",
+      "20 Creative Ad Designs Monthly",
+      "5% Success Fee Upon KPI Achievement",
+    ],
+    addons: [
+      "Lead Generation Setup",
+      "WordPress Website Setup",
+      "E-commerce Store Setup",
+      "Professional Landing Page",
+      "Pixel & CPA Tracking",
+      "Product Photography",
+      "Motion Graphics Design",
     ],
   },
 ]
+
 
 export function PackagesCarousel() {
   return (
@@ -157,6 +205,38 @@ export function PackagesCarousel() {
                         </li>
                       ))}
                     </ul>
+
+
+                        {pkg.budget && (
+  <div className="mb-4 p-3 rounded-xl bg-roya-accent/10 border border-roya-accent/20">
+    <p className="text-xs text-text-secondary mb-1">
+      Recommended Ad Budget
+    </p>
+    <p className="font-semibold text-roya-primary">
+      {pkg.budget}
+    </p>
+  </div>
+)}
+
+{pkg.addons?.length > 0 && (
+  <div className="mb-5 p-4 rounded-xl bg-roya-primary/5 border border-border">
+    <h4 className="font-semibold text-sm text-roya-primary mb-3">
+      Optional Add-ons
+    </h4>
+
+    <ul className="space-y-2">
+      {pkg.addons.map((addon) => (
+        <li
+          key={addon}
+          className="text-xs text-text-secondary flex items-center gap-2"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-roya-accent" />
+          {addon}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
 
                     {/* CTA */}
                     <a
