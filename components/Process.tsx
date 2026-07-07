@@ -15,12 +15,25 @@ const processSteps = [
 
 export function Process() {
   return (
-    <section className="py-24 bg-bg-primary overflow-hidden">
+    <section className="py-24 bg-[#09090b] overflow-hidden relative">
+
+       <div className="absolute inset-0 z-0 pointer-events-none select-none">
+              <div 
+                className="absolute inset-0 opacity-[0.03]" 
+                style={{
+                  backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), 
+                                    linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                  backgroundSize: '40px 40px',
+                  maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0))',
+                  WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0))'
+                }}
+              />
+            </div>
       <div className="max-w-7xl mx-auto px-6">
-        <span className="inline-block px-4 py-2 bg-roya-primary/10 text-roya-primary rounded-full text-sm font-medium mb-6">
+        <span className="inline-block px-4 py-2 bg-[#FDF5E6] text-roya-primary rounded-full text-sm font-medium mb-6">
           How We Work
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-roya-primary mb-16">Our Process</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-[#FDF5E6] mb-16">Our Process</h2>
 
         {/* Desktop / tablet: horizontal flow with connecting arrows */}
         <div className="hidden md:flex items-start justify-between gap-2">
@@ -33,10 +46,10 @@ export function Process() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className="flex flex-col items-center text-center px-2"
               >
-                <div className="w-16 h-16 mb-4 rounded-full bg-roya-primary/10 flex items-center justify-center relative">
-                  <span className="text-xl font-bold text-roya-primary">{step.step}</span>
+                <div className="w-16 h-16 mb-4 rounded-full  flex items-center justify-center relative">
+                  <span className="text-xl font-bold text-[#FDF5E6]imary">{step.step}</span>
                 </div>
-                <p className="font-semibold text-roya-primary mb-1">{step.title}</p>
+                <p className="font-semibold text-[#FDF5E6] mb-1">{step.title}</p>
                 <p className="text-xs text-text-secondary leading-relaxed">{step.desc}</p>
               </motion.div>
 
