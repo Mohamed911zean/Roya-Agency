@@ -3,7 +3,19 @@ import {FaFacebook , FaInstagram , FaTiktok} from "react-icons/fa"
 
 export function Footer() {
   return (
-    <footer className="bg-roya-primary text-white py-16">
+    <footer className="relative bg-[#09090b] text-white py-16">
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div 
+          className="absolute inset-0 opacity-[0.03]" 
+          style={{
+            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), 
+                              linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0))',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0))'
+          }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>

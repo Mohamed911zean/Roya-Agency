@@ -12,257 +12,210 @@ import {
 
 const packages = [
   {
-    name: "Starter",
-    price: "4500",
-    originalPrice: "6000",
-    description: "Perfect for startups and small businesses",
+    name: "Start Plan",
+    price: "6000",
+    originalPrice: "7500", // سعر تقديري لحساب الخصم تلقائياً
+    description: "Essential social media presence for small businesses",
     popular: false,
     badge: null,
-    budget: "5,000 - 15,000 EGP / month",
+    budget: "Sponsored ads budget is not included",
     features: [
-      "Meta Ads Management (Facebook & Instagram)",
-      "2 Advertising Campaigns Monthly",
-      "Weekly Campaign Optimization",
-      "Audience Targeting Setup",
-      "Meta Pixel Installation & Tracking",
-      "Monthly Performance Report",
-      "WhatsApp Support",
-    ],
-    addons: [
-      "Lead Generation Setup",
-      "WordPress Website Setup",
-      "E-commerce Store Setup",
-      "Professional Landing Page",
-      "Pixel & CPA Tracking",
-      "Product Photography",
-      "Motion Graphics Design",
+      "4 Social Media Posts",
+      "2 Stories",
+      "6 AI-Generated Posts",
+      "1 Reels Video",
+      "Content Writing",
+      "Page Management",
     ],
   },
   {
-    name: "Professional",
-    price: "15000",
-    originalPrice: "18000",
-    description: "For growing businesses and active stores",
-    popular: false,
-    badge: "Business Choice",
-    budget: "50,000 - 150,000 EGP / month",
-    features: [
-      "Full Campaign Management",
-      "Advanced Audience Retargeting",
-      "Daily Optimization",
-      "Weekly Meetings",
-      "CPA & ROAS Analysis",
-      "Performance Dashboard",
-      "10 Advertising Campaigns Monthly",
-      "3% Success Fee Upon Target Achievement",
-    ],
-    addons: [
-      "Lead Generation Setup",
-      "WordPress Website Setup",
-      "E-commerce Store Setup",
-      "Professional Landing Page",
-      "Pixel & CPA Tracking",
-      "Product Photography",
-      "Motion Graphics Design",
-    ],
-  },
-  {
-    name: "Growth",
-    price: "8500",
-    originalPrice: "10000",
-    description: "Our most requested package",
+    name: "ViP Plan",
+    price: "16000",
+    originalPrice: "20000", // سعر تقديري لحساب الخصم تلقائياً
+    description: "Maximum growth and complete digital dominance",
     popular: true,
     badge: "Most Popular",
-    budget: "15,000 - 50,000 EGP / month",
+    budget: "Sponsored ads budget is not included",
     features: [
-      "Meta Ads Management",
-      "5 Live Campaigns Monthly",
-      "Competitor Analysis",
-      "A/B Testing Strategy",
-      "Retargeting Campaigns",
-      "Campaign Performance Optimization",
-      "Weekly Reporting",
-      "Sales & Results Tracking",
-    ],
-    addons: [
-      "Lead Generation Setup",
-      "WordPress Website Setup",
-      "E-commerce Store Setup",
-      "Professional Landing Page",
-      "Pixel & CPA Tracking",
-      "Product Photography",
-      "Motion Graphics Design",
+      "12 Social Media Posts",
+      "6 Stories",
+      "18 AI-Generated Posts",
+      "3 Reels Videos",
+      "Content Writing",
+      "Page Management",
+      "Free 2,000 Followers Bonus",
     ],
   },
   {
-    name: "Enterprise",
-    price: "25000",
-    originalPrice: "30000",
-    description: "For large businesses and brands",
+    name: "Gold Plan",
+    price: "11000",
+    originalPrice: "14000", // سعر تقديري لحساب الخصم تلقائياً
+    description: "Advanced package for growing brands and active accounts",
     popular: false,
-    badge: "Enterprise",
-    budget: "150,000+ EGP / month",
+    badge: "Business Choice",
+    budget: "Sponsored ads budget is not included",
     features: [
-      "Multi-Platform Advertising Management",
-      "Meta Ads Management",
-      "TikTok Ads Management",
-      "Snapchat Ads Management",
-      "Google Ads Management",
-      "Full Funnel Strategy",
-      "Advanced Tracking System",
-      "Weekly Meetings",
-      "Professional Reporting",
-      "Dedicated Account Manager",
-      "20 Creative Ad Designs Monthly",
-      "5% Success Fee Upon KPI Achievement",
-    ],
-    addons: [
-      "Lead Generation Setup",
-      "WordPress Website Setup",
-      "E-commerce Store Setup",
-      "Professional Landing Page",
-      "Pixel & CPA Tracking",
-      "Product Photography",
-      "Motion Graphics Design",
+      "8 Social Media Posts",
+      "4 Stories",
+      "12 AI-Generated Posts",
+      "2 Reels Videos",
+      "Content Writing",
+      "Page Management",
+      "Free 1,000 Followers Bonus",
     ],
   },
 ]
 
-
 export function PackagesCarousel() {
   return (
-    <section id="packages" className="py-24 bg-roya-primary relative overflow-hidden">
-      {/* Ambient background accents */}
-      <div className="absolute inset-0 opacity-40" style={{
-        background: "radial-gradient(circle at 15% 20%, rgba(232, 112, 78, 0.18) 0%, transparent 45%), radial-gradient(circle at 85% 80%, rgba(23, 58, 138, 0.5) 0%, transparent 50%)"
+    <section id="packages" className="py-24 bg-[#09090b] relative overflow-hidden">
+      
+      {/* --- BACKGROUND GRID (Ultra-lightweight) --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div 
+          className="absolute inset-0 opacity-[0.02]" 
+          style={{
+            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), 
+                              linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0))',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0))'
+          }}
+        />
+      </div>
+
+      {/* Ambient background accents - Smooth & Low CPU footprint */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
+        background: "radial-gradient(circle at 15% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 50%), radial-gradient(circle at 85% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)"
       }} />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6 z-10">
+        
+        {/* Header Section */}
         <div className="text-center mb-4">
-          <span className="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
+          <span className="inline-block px-3.5 py-1 bg-gray-900 border border-gray-800 text-gray-400 rounded-full text-xs font-medium mb-6 uppercase tracking-wider">
             Limited-Time Pricing
           </span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">Our Packages</h2>
-        <p className="text-xl text-white/70 text-center mb-16 max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 tracking-tight">
+          Our Packages
+        </h2>
+        <p className="text-sm md:text-base text-gray-400 text-center mb-16 max-w-xl mx-auto leading-relaxed">
           Transparent pricing, real value. Pick the plan that matches where your business is headed.
         </p>
 
-        <Carousel opts={{ align: "start", loop: true }} className="w-full">
-          <CarouselContent>
-            {packages.map((pkg) => (
-              <CarouselItem key={pkg.name} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                <div className="p-2 h-full">
-                  <div
-                    className={cn(
-                      "relative rounded-3xl h-full flex flex-col bg-white p-6 transition-all duration-300 hover:-translate-y-1",
-                      pkg.popular
-                        ? "ring-2 ring-roya-accent shadow-2xl shadow-roya-accent/20"
-                        : "ring-1 ring-white/10 shadow-xl"
-                    )}
-                  >
-                    {/* Badge */}
-                    {pkg.badge && (
-                      <div
-                        className={cn(
-                          "absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 whitespace-nowrap",
-                          pkg.popular
-                            ? "bg-roya-accent text-white"
-                            : "bg-roya-primary text-white"
-                        )}
-                      >
-                        {pkg.popular ? <Crown className="w-3.5 h-3.5" /> : <Sparkles className="w-3.5 h-3.5" />}
-                        {pkg.badge}
-                      </div>
-                    )}
-
-                    {/* Header */}
-                    <div className="text-center pt-4 pb-5 mb-5 border-b border-border">
-                      <h3 className="text-xl font-bold text-roya-primary mb-3">{pkg.name}</h3>
-                      <div className="flex items-end justify-center gap-2 flex-wrap">
-                        <span className="text-3xl md:text-4xl font-extrabold text-roya-primary">
-                          {pkg.price}
-                        </span>
-                        <span className="text-sm text-text-secondary mb-1">EGP/mo</span>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 mt-1.5">
-                        <span className="text-sm text-text-secondary line-through">{pkg.originalPrice} EGP</span>
-                        <span className="text-xs font-semibold text-roya-accent bg-roya-accent/10 px-2 py-0.5 rounded-full">
-                          Save {Math.round((1 - Number(pkg.price) / Number(pkg.originalPrice)) * 100)}%
-                        </span>
-                      </div>
-                      <p className="text-sm text-text-secondary mt-3">{pkg.description}</p>
-                    </div>
-
-                    {/* Features */}
-                    <ul className="space-y-3 mb-6 flex-grow">
-                      {pkg.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <div className="w-5 h-5 mt-0.5 rounded-full bg-roya-accent/10 flex items-center justify-center flex-shrink-0">
-                            <Check className="w-3 h-3 text-roya-accent" strokeWidth={3} />
-                          </div>
-                          <span className="text-sm text-text-primary">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-
-                        {pkg.budget && (
-  <div className="mb-4 p-3 rounded-xl bg-roya-accent/10 border border-roya-accent/20">
-    <p className="text-xs text-text-secondary mb-1">
-      Recommended Ad Budget
-    </p>
-    <p className="font-semibold text-roya-primary">
-      {pkg.budget}
-    </p>
-  </div>
-)}
-
-{pkg.addons?.length > 0 && (
-  <div className="mb-5 p-4 rounded-xl bg-roya-primary/5 border border-border">
-    <h4 className="font-semibold text-sm text-roya-primary mb-3">
-      Optional Add-ons
-    </h4>
-
-    <ul className="space-y-2">
-      {pkg.addons.map((addon) => (
-        <li
-          key={addon}
-          className="text-xs text-text-secondary flex items-center gap-2"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-roya-accent" />
-          {addon}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-
-                    {/* CTA */}
-                    <a
-                      href="#contact"
+        {/* --- CAROUSEL SYSTEM --- */}
+        {/* الحاوية الكبرى مضاف لها padding جانبي على الديسكتوب لإعطاء مساحة آمنة للأزرار الطائرة */}
+        <div className="relative w-full md:px-12">
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            
+            {/* items-stretch تضمن تمدد الكروت لارتفاع موحد هندسياً */}
+            <CarouselContent className="-ml-4 flex items-stretch">
+              {packages.map((pkg) => (
+                <CarouselItem 
+                  key={pkg.name} 
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 flex"
+                >
+                  <div className="w-full pb-2 pt-4 flex">
+                    <div
                       className={cn(
-                        "w-full py-3.5 rounded-full font-semibold text-center transition-opacity hover:opacity-90 block",
+                        "relative rounded-2xl w-full flex flex-col bg-[#0e0e11] p-6 border transition-all duration-200",
                         pkg.popular
-                          ? "bg-roya-accent text-white"
-                          : "bg-roya-primary text-white"
+                          ? "border-indigo-500/50 ring-1 ring-indigo-500/30 shadow-xl shadow-indigo-500/5"
+                          : "border-gray-800/80 shadow-sm"
                       )}
                     >
-                      Get Started
-                    </a>
+                      {/* Badge */}
+                      {pkg.badge && (
+                        <div
+                          className={cn(
+                            "absolute -top-3 left-6 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap",
+                            pkg.popular
+                              ? "bg-indigo-600 text-white"
+                              : "bg-gray-800 text-gray-300 border border-gray-700"
+                          )}
+                        >
+                          {pkg.popular ? <Crown className="w-3 h-3" /> : <Sparkles className="w-3 h-3" />}
+                          {pkg.badge}
+                        </div>
+                      )}
+
+                      {/* Card Header */}
+                      <div className="pt-2 pb-5 mb-5 border-b border-gray-900">
+                        <h3 className="text-lg font-bold text-white mb-2">{pkg.name}</h3>
+                        
+                        <div className="flex items-baseline gap-1 flex-wrap">
+                          <span className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                            {pkg.price}
+                          </span>
+                          <span className="text-xs text-gray-500 font-medium">EGP/mo</span>
+                        </div>
+
+                        <div className="flex items-center gap-2 mt-1.5">
+                          <span className="text-xs text-gray-600 line-through">{pkg.originalPrice} EGP</span>
+                          <span className="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-1.5 py-0.5 rounded">
+                            Save {Math.round((1 - Number(pkg.price) / Number(pkg.originalPrice)) * 100)}%
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-400 mt-3 min-h-[32px] line-clamp-2 leading-relaxed">
+                          {pkg.description}
+                        </p>
+                      </div>
+
+                      {/* Features List (flex-grow تملأ المساحة لتدفع بقية العناصر للأسفل وتوحد المحاذاة) */}
+                      <ul className="space-y-3 mb-6 flex-grow">
+                        {pkg.features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-2.5">
+                            <div className="w-4 h-4 mt-0.5 rounded-full bg-indigo-500/10 flex items-center justify-center flex-shrink-0">
+                              <Check className="w-2.5 h-2.5 text-indigo-400" strokeWidth={3} />
+                            </div>
+                            <span className="text-xs text-gray-300 leading-normal">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Contextual Budget Section */}
+                      <div className="mt-auto pt-2 space-y-4">
+                        {pkg.budget && (
+                          <div className="p-3 rounded-xl bg-gray-950 border border-gray-900">
+                            <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wider mb-0.5">
+                              Recommended Ad Budget
+                            </p>
+                            <p className="text-xs font-semibold text-gray-200">
+                              {pkg.budget}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* CTA Button */}
+                        <a
+                          href="#contact"
+                          className={cn(
+                            "w-full py-2.5 rounded-lg text-xs font-bold text-center block transition-colors duration-200",
+                            pkg.popular
+                              ? "bg-indigo-600 hover:bg-indigo-700 text-white"
+                              : "bg-gray-900 hover:bg-gray-800 text-gray-200 border border-gray-800"
+                          )}
+                        >
+                          Get Started
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
 
-          <div className="flex justify-center gap-4 mt-10">
-            <CarouselPrevious className="relative static inset-auto bg-white text-roya-primary hover:bg-white/90 border-none" />
-            <CarouselNext className="relative static inset-auto bg-white text-roya-primary hover:bg-white/90 border-none" />
-          </div>
-        </Carousel>
+            {/* --- SIDE CONTROLLERS --- */}
+            {/* الأزرار متموضعة في منتصف الكاروسيل عمودياً وتظهر في الشاشات المتوسطة والكبيرة فقط */}
+            <div className=" md:block">
+              <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 -left-4 w-10 h-10 bg-[#0e0e11] hover:bg-gray-900 text-gray-300 border border-gray-800 hover:text-white shadow-md transition-all rounded-full z-30" />
+              <CarouselNext className="absolute top-1/2 -translate-y-1/2 -right-4 w-10 h-10 bg-[#0e0e11] hover:bg-gray-900 text-gray-300 border border-gray-800 hover:text-white shadow-md transition-all rounded-full z-30" />
+            </div>
+          </Carousel>
+        </div>
 
-        <p className="text-center text-white/50 text-sm mt-10">
+        <p className="text-center text-gray-500 text-xs mt-12">
           All plans are billed monthly. Cancel or upgrade anytime — no long-term contracts.
         </p>
       </div>

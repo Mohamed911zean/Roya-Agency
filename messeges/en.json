@@ -1,0 +1,58 @@
+{
+  "packagesSection": {
+    "title": "Our Packages",
+    "subtitle": "Custom packages are available to fit your business needs and budget",
+    "contactEmail": "Royaagency7@gmail.com",
+    "contactPhone": "01016236711",
+    "currency": "EGP",
+    "period": "month",
+    "ctaText": "Get Started",
+    "budgetNote": "Sponsored ads budget is not included in the package",
+    "list": [
+      {
+        "name": "Start Plan",
+        "price": "6000",
+        "popular": false,
+        "badge": null,
+        "features": [
+          "4 Social Media Posts",
+          "2 Stories",
+          "6 AI-Generated Posts",
+          "1 Reels Video",
+          "Content Writing",
+          "Page Management"
+        ]
+      },
+      {
+        "name": "ViP Plan",
+        "price": "16000",
+        "popular": true,
+        "badge": "MOST POPULAR",
+        "features": [
+          "12 Social Media Posts",
+          "6 Stories",
+          "18 AI-Generated Posts",
+          "3 Reels Videos",
+          "Content Writing",
+          "Page Management",
+          "Free 2,000 Followers Bonus"
+        ]
+      },
+      {
+        "name": "Gold Plan",
+        "price": "11000",
+        "popular": false,
+        "badge": null,
+        "features": [
+          "8 Social Media Posts",
+          "4 Stories",
+          "12 AI-Generated Posts",
+          "2 Reels Videos",
+          "Content Writing",
+          "Page Management",
+          "Free 1,000 Followers Bonus"
+        ]
+      }
+    ]
+  }
+}

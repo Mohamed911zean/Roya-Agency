@@ -1,0 +1,58 @@
+{
+  "packagesSection": {
+    "title": "باقاتنا",
+    "subtitle": "متاح تصميم باقات خاصة تناسب احتياجات نشاطك و ميزانيتك",
+    "contactEmail": "Royaagency7@gmail.com",
+    "contactPhone": "01016236711",
+    "currency": "جنيه",
+    "period": "شهرياً",
+    "ctaText": "Get Started",
+    "budgetNote": "الإعلان الممول بميزانية خارج الباكتج",
+    "list": [
+      {
+        "name": "Start Plan",
+        "price": "6000",
+        "popular": false,
+        "badge": null,
+        "features": [
+          "4 بوست سوشيال ميديا",
+          "2 ستوري",
+          "6 بوست Ai",
+          "فيديو ريلز",
+          "كتابة محتوى",
+          "إدارة الصفحة"
+        ]
+      },
+      {
+        "name": "ViP Plan",
+        "price": "16000",
+        "popular": true,
+        "badge": "MOST POPULAR",
+        "features": [
+          "12 بوست سوشيال ميديا",
+          "6 ستوري",
+          "18 بوست Ai",
+          "3 فيديو ريلز",
+          "كتابة محتوى",
+          "إدارة الصفحة",
+          "2000 متابع هدية"
+        ]
+      },
+      {
+        "name": "Gold Plan",
+        "price": "11000",
+        "popular": false,
+        "badge": null,
+        "features": [
+          "8 بوست سوشيال ميديا",
+          "4 ستوري",
+          "12 بوست Ai",
+          "2 فيديو ريلز",
+          "كتابة محتوى",
+          "إدارة الصفحة",
+          "1000 متابع هدية"
+        ]
+      }
+    ]
+  }
+}
