@@ -1,19 +1,112 @@
 {
+  "nav": {
+    "services": "Services",
+    "packages": "Packages",
+    "industries": "Industries",
+    "about": "About",
+    "contact": "Contact",
+    "bookDiscovery": "Book a Discovery Call"
+  },
+  "hero": {
+    "tag": "Performance & Growth",
+    "title": "We build digital systems that",
+    "titleHighlight": "drive scale.",
+    "description": "A premium performance agency optimizing marketing, branding, and conversion engineering for modern ambitious businesses.",
+    "cta1": "Start Your Project",
+    "cta2": "Book Discovery Call",
+    "trustText": "Trusted by high-growth software & ecommerce companies.",
+    "expertiseTitle": "Expertise Ecosystem",
+    "expertise": [
+      "Google Ads",
+      "Meta Ads",
+      "Growth SEO",
+      "Brand Strategy",
+      "Web Engineering",
+      "Data Analytics"
+    ],
+    "ticker": [
+      "Performance Marketing",
+      "Brand Identity",
+      "Growth Systems",
+      "Web Engineering",
+      "Paid Media",
+      "Analytics"
+    ],
+    "analytics": {
+      "label": "Net Revenue Attributed",
+      "roasLabel": "ROAS",
+      "roasValue": "7.2x",
+      "conversionLabel": "Conversion",
+      "conversionValue": "24.3%",
+      "trafficLabel": "Monthly Traffic",
+      "trafficValue": "384,190",
+      "performanceLabel": "Performance Index",
+      "performanceValue": "98/100",
+      "securityLabel": "Security Auditing",
+      "securityValue": "Verified"
+    }
+  },
+  "about": {
+    "tag": "01 — About Roya",
+    "title": "Strategy-led marketing built for brands that want measurable growth.",
+    "description": "Roya Agency helps businesses grow through performance marketing, branding, content, and digital strategy."
+  },
+  "services": {
+    "marketing": {
+      "title": "Marketing Services",
+      "list": [
+        "Performance Marketing",
+        "Paid Advertising",
+        "Social Media Management",
+        "Content Creation",
+        "Branding",
+        "SEO Strategy",
+        "Marketing Consultation"
+      ]
+    },
+    "software": {
+      "badge": "Powered by Reactech Team",
+      "title": "Software Services",
+      "list": [
+        "Business Websites",
+        "Landing Pages",
+        "Ecommerce Stores",
+        "Web Applications",
+        "Dashboards",
+        "Custom Platforms",
+        "Technical Consultation"
+      ]
+    },
+    "growth": {
+      "title": "Growth Solutions",
+      "list": [
+        "Marketing + Website Launch",
+        "Ecommerce Growth Systems",
+        "Brand Growth Packages",
+        "Lead Generation Funnels",
+        "Full Digital Transformation"
+      ]
+    }
+  },
   "packagesSection": {
+    "badge": "Limited-Time Pricing",
     "title": "Our Packages",
-    "subtitle": "Custom packages are available to fit your business needs and budget",
-    "contactEmail": "Royaagency7@gmail.com",
-    "contactPhone": "01016236711",
-    "currency": "EGP",
-    "period": "month",
+    "subtitle": "Transparent pricing, real value. Pick the plan that matches where your business is headed.",
+    "note": "All plans are billed monthly. Cancel or upgrade anytime — no long-term contracts.",
+    "recommendedBudget": "Recommended Ad Budget",
     "ctaText": "Get Started",
-    "budgetNote": "Sponsored ads budget is not included in the package",
+    "save": "Save",
+    "currency": "EGP",
+    "period": "mo",
     "list": [
       {
         "name": "Start Plan",
         "price": "6000",
+        "originalPrice": "7500",
+        "description": "Essential social media presence for small businesses",
         "popular": false,
         "badge": null,
+        "budget": "Sponsored ads budget is not included",
         "features": [
           "4 Social Media Posts",
           "2 Stories",
@@ -24,10 +117,13 @@
         ]
       },
       {
-        "name": "ViP Plan",
+        "name": "VIP Plan",
         "price": "16000",
+        "originalPrice": "20000",
+        "description": "Maximum growth and complete digital dominance",
         "popular": true,
-        "badge": "MOST POPULAR",
+        "badge": "Most Popular",
+        "budget": "Sponsored ads budget is not included",
         "features": [
           "12 Social Media Posts",
           "6 Stories",
@@ -41,8 +137,11 @@
       {
         "name": "Gold Plan",
         "price": "11000",
+        "originalPrice": "14000",
+        "description": "Advanced package for growing brands and active accounts",
         "popular": false,
-        "badge": null,
+        "badge": "Business Choice",
+        "budget": "Sponsored ads budget is not included",
         "features": [
           "8 Social Media Posts",
           "4 Stories",
@@ -54,5 +153,142 @@
         ]
       }
     ]
+  },
+  "partnership": {
+    "badge": "Strategic Partnership",
+    "title1": "Where Marketing",
+    "title2": "Meets",
+    "title3": "Technology",
+    "description": "Roya Agency and Reactech work as one integrated team to build campaigns, websites, funnels, and digital systems that help businesses grow faster and convert better.",
+    "journeyTitle": "From First Click to Final Sale",
+    "journeySubtitle": "Every stage of the customer journey is designed and optimized by one unified team.",
+    "journey": [
+      {
+        "icon": "MousePointerClick",
+        "title": "Traffic",
+        "desc": "Strategic campaigns designed to attract qualified prospects."
+      },
+      {
+        "icon": "Users",
+        "title": "Leads",
+        "desc": "Conversion-focused funnels that turn visitors into opportunities."
+      },
+      {
+        "icon": "Globe",
+        "title": "Digital Experience",
+        "desc": "Custom websites and systems built around business goals."
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Growth",
+        "desc": "Optimization, analytics, and continuous improvement."
+      }
+    ],
+    "traditionalTitle": "Traditional Agencies",
+    "traditionalList": [
+      "Marketing handled separately",
+      "Template-based websites",
+      "Multiple vendors involved",
+      "Communication gaps",
+      "Disconnected customer journey"
+    ],
+    "partnershipTitle": "Roya × Reactech",
+    "partnershipList": [
+      "Unified strategy & execution",
+      "Custom-built digital products",
+      "One team from start to finish",
+      "Direct communication",
+      "Conversion-focused ecosystem"
+    ],
+    "ctaTitle": "Ready To Scale Smarter?",
+    "ctaDescription": "Work with a team that handles strategy, marketing, design, development, and optimization under one roof.",
+    "ctaButton": "Book a Discovery Call"
+  },
+  "industries": {
+    "tag": "Who We Work With",
+    "title": "Industries We Serve",
+    "list": [
+      { "icon": "ShoppingBag", "name": "Ecommerce", "desc": "Stores built to sell" },
+      { "icon": "Home", "name": "Real Estate", "desc": "Listings that close deals" },
+      { "icon": "UtensilsCrossed", "name": "Restaurants", "desc": "Brands people crave" },
+      { "icon": "Hotel", "name": "Hospitality", "desc": "Experiences worth booking" },
+      { "icon": "Rocket", "name": "Startups", "desc": "Launches with momentum" },
+      { "icon": "Briefcase", "name": "Service Businesses", "desc": "Clients on autopilot" },
+      { "icon": "UserCircle2", "name": "Personal Brands", "desc": "Influence that converts" },
+      { "icon": "Building2", "name": "Corporate Companies", "desc": "Authority at scale" }
+    ]
+  },
+  "process": {
+    "tag": "How We Work",
+    "title": "Our Process",
+    "steps": [
+      { "step": "01", "title": "Discovery", "desc": "Understanding your brand, goals, and market position." },
+      { "step": "02", "title": "Research", "desc": "Analyzing competitors, audience, and opportunities." },
+      { "step": "03", "title": "Strategy", "desc": "Building a roadmap tailored to your growth targets." },
+      { "step": "04", "title": "Planning", "desc": "Mapping content, campaigns, and timelines." },
+      { "step": "05", "title": "Execution", "desc": "Bringing the strategy to life across channels." },
+      { "step": "06", "title": "Optimization", "desc": "Refining based on real performance data." },
+      { "step": "07", "title": "Growth", "desc": "Scaling what works, consistently." }
+    ]
+  },
+  "testimonials": {
+    "tag": "Testimonials",
+    "title": "Trusted By Growing Businesses",
+    "description": "Real feedback from founders, business owners, and marketing teams who partnered with Roya Agency."
+  },
+  "contact": {
+    "title": "Project Inquiry",
+    "description": "Let's discuss your project and create something amazing together.",
+    "fullName": "Full Name",
+    "companyName": "Company Name",
+    "industry": "Industry",
+    "requiredService": "Required Service",
+    "estimatedBudget": "Estimated Budget",
+    "projectTimeline": "Project Timeline",
+    "projectDetails": "Project Details",
+    "projectGoal": "Goal of the Project",
+    "submit": "Request a Proposal",
+    "selectIndustry": "Select Industry",
+    "ecommerce": "Ecommerce",
+    "realEstate": "Real Estate",
+    "restaurants": "Restaurants",
+    "hospitality": "Hospitality",
+    "startups": "Startups",
+    "services": "Service Businesses",
+    "personalBrand": "Personal Brands",
+    "corporate": "Corporate Companies",
+    "selectService": "Select Service",
+    "marketingService": "Marketing Services",
+    "softwareService": "Software/Website",
+    "growthService": "Growth Solutions",
+    "customPackage": "Custom Package",
+    "selectBudget": "Select Range",
+    "budget1": "$5k - $10k",
+    "budget2": "$10k - $25k",
+    "budget3": "$25k - $50k",
+    "budget4": "$50k+",
+    "selectTimeline": "Select Timeline",
+    "timeline1": "1 Month",
+    "timeline2": "3 Months",
+    "timeline3": "6 Months",
+    "timeline4": "Ongoing"
+  },
+  "finalCta": {
+    "title": "Your next growth story starts here.",
+    "description": "Let's build a marketing strategy and digital experience that drives measurable business results.",
+    "cta1": "Start Your Project",
+    "cta2": "WhatsApp Consultation"
+  },
+  "footer": {
+    "description": "Helping brands grow, scale, and convert faster.",
+    "quickLinks": "Quick Links",
+    "technologyPartner": "Technology Partner",
+    "contact": "Contact",
+    "rights": "© 2026 Roya Agency. All rights reserved.",
+    "madeBy": "Made By"
+  },
+  "language": {
+    "en": "English",
+    "ar": "العربية"
   }
 }

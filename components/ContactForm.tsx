@@ -2,8 +2,10 @@
 
 import { useState } from "react"
 import { Send } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function ContactForm() {
+  const t = useTranslations("contact")
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
@@ -36,13 +38,13 @@ Goal: ${formData.projectGoal}
   return (
     <section id="contact" className="py-24 bg-bg-primary">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-roya-primary text-center mb-4">Project Inquiry</h2>
-        <p className="text-xl text-text-secondary text-center mb-12">Let's discuss your project and create something amazing together.</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-roya-primary text-center mb-4">{t("title")}</h2>
+        <p className="text-xl text-text-secondary text-center mb-12">{t("description")}</p>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 md:p-12 border border-border shadow-xl">
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-2">Full Name</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">{t("fullName")}</label>
               <input 
                 required
                 type="text" 
@@ -52,7 +54,7 @@ Goal: ${formData.projectGoal}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-2">Company Name</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">{t("companyName")}</label>
               <input 
                 type="text" 
                 className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
@@ -64,72 +66,72 @@ Goal: ${formData.projectGoal}
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-2">Industry</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">{t("industry")}</label>
               <select 
                 className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
                 value={formData.industry}
                 onChange={(e) => setFormData({...formData, industry: e.target.value})}
               >
-                <option value="">Select Industry</option>
-                <option value="ecommerce">Ecommerce</option>
-                <option value="real-estate">Real Estate</option>
-                <option value="restaurants">Restaurants</option>
-                <option value="hospitality">Hospitality</option>
-                <option value="startups">Startups</option>
-                <option value="services">Service Businesses</option>
-                <option value="personal-brand">Personal Brands</option>
-                <option value="corporate">Corporate Companies</option>
+                <option value="">{t("selectIndustry")}</option>
+                <option value="ecommerce">{t("ecommerce")}</option>
+                <option value="real-estate">{t("realEstate")}</option>
+                <option value="restaurants">{t("restaurants")}</option>
+                <option value="hospitality">{t("hospitality")}</option>
+                <option value="startups">{t("startups")}</option>
+                <option value="services">{t("services")}</option>
+                <option value="personal-brand">{t("personalBrand")}</option>
+                <option value="corporate">{t("corporate")}</option>
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-2">Required Service</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">{t("requiredService")}</label>
               <select 
                 className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
                 value={formData.requiredService}
                 onChange={(e) => setFormData({...formData, requiredService: e.target.value})}
               >
-                <option value="">Select Service</option>
-                <option value="marketing">Marketing Services</option>
-                <option value="software">Software/Website</option>
-                <option value="growth">Growth Solutions</option>
-                <option value="custom">Custom Package</option>
+                <option value="">{t("selectService")}</option>
+                <option value="marketing">{t("marketingService")}</option>
+                <option value="software">{t("softwareService")}</option>
+                <option value="growth">{t("growthService")}</option>
+                <option value="custom">{t("customPackage")}</option>
               </select>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-2">Estimated Budget</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">{t("estimatedBudget")}</label>
               <select 
                 className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
                 value={formData.estimatedBudget}
                 onChange={(e) => setFormData({...formData, estimatedBudget: e.target.value})}
               >
-                <option value="">Select Range</option>
-                <option value="5k-10k">$5k - $10k</option>
-                <option value="10k-25k">$10k - $25k</option>
-                <option value="25k-50k">$25k - $50k</option>
-                <option value="50k+">$50k+</option>
+                <option value="">{t("selectBudget")}</option>
+                <option value="5k-10k">{t("budget1")}</option>
+                <option value="10k-25k">{t("budget2")}</option>
+                <option value="25k-50k">{t("budget3")}</option>
+                <option value="50k+">{t("budget4")}</option>
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-2">Project Timeline</label>
+              <label className="block text-sm font-medium text-text-secondary mb-2">{t("projectTimeline")}</label>
               <select 
                 className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
                 value={formData.projectTimeline}
                 onChange={(e) => setFormData({...formData, projectTimeline: e.target.value})}
               >
-                <option value="">Select Timeline</option>
-                <option value="1-month">1 Month</option>
-                <option value="3-months">3 Months</option>
-                <option value="6-months">6 Months</option>
-                <option value="ongoing">Ongoing</option>
+                <option value="">{t("selectTimeline")}</option>
+                <option value="1month">{t("timeline1")}</option>
+                <option value="3months">{t("timeline2")}</option>
+                <option value="6months">{t("timeline3")}</option>
+                <option value="ongoing">{t("timeline4")}</option>
               </select>
             </div>
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-text-secondary mb-2">Project Details</label>
+            <label className="block text-sm font-medium text-text-secondary mb-2">{t("projectDetails")}</label>
             <textarea 
               rows={4}
               className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
@@ -139,7 +141,7 @@ Goal: ${formData.projectGoal}
           </div>
 
           <div className="mb-8">
-            <label className="block text-sm font-medium text-text-secondary mb-2">Goal of the Project</label>
+            <label className="block text-sm font-medium text-text-secondary mb-2">{t("projectGoal")}</label>
             <textarea 
               rows={3}
               className="w-full px-4 py-3 rounded-xl border border-border bg-bg-secondary focus:outline-none focus:border-roya-accent"
@@ -152,7 +154,7 @@ Goal: ${formData.projectGoal}
             type="submit"
             className="w-full py-4 bg-roya-accent text-white rounded-full font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
           >
-            Request a Proposal
+            {t("submit")}
             <Send className="w-5 h-5" />
           </button>
         </form>

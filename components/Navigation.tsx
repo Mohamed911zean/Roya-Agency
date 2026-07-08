@@ -3,31 +3,31 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, Menu, X } from "lucide-react"
-import Image from "next/image" // لو شغال Next.js، لو React عادية استبدلها بـ <img />
-
-const navItems = [
-  { name: "Services", href: "#services" },
-  { name: "Packages", href: "#packages" },
-  { name: "Industries", href: "#industries" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-]
+import { useTranslations } from "next-intl"
+import { LanguageSwitcher } from "./LanguageSwitcher"
 
 export function Navigation() {
+  const t = useTranslations("nav")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navItems = [
+    { name: t("services"), href: "#services" },
+    { name: t("packages"), href: "#packages" },
+    { name: t("industries"), href: "#industries" },
+    { name: t("about"), href: "#about" },
+    { name: t("contact"), href: "#contact" },
+  ]
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        {/* مكان اللوجو الجديد مع تظبيط اللون */}
+        {/* Logo */}
         <a href="#" className="flex items-center h-full py-3">
           <img 
-            src="\Roya-Agency-logo-no-bg-removebg-preview.png" // حط مسار لوجو براندك الأبيض هنا
+            src="/Roya-Agency-logo-no-bg-removebg-preview.png"
             alt="Roya Agency Logo" 
             className="h-full w-auto object-contain brightness-0" 
-            // كلاس brightness-0 بيحول أي لوجو (حتى لو أبيض) للون أسود فحم عشان يبان ع الخلفية البيضاء
-            // لو عايزه يقلب رمادي غامق جرب: invert drop-shadow-sm
           />
         </a>
         
@@ -44,14 +44,17 @@ export function Navigation() {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <a 
-          href="#contact" 
-          className="hidden md:inline-flex items-center gap-2 bg-roya-primary text-white px-6 py-3 rounded-full font-medium hover:bg-roya-secondary transition-colors"
-        >
-          Book a Discovery Call
-          <ArrowRight className="w-4 h-4" />
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
+          {/* CTA Button */}
+          <a 
+            href="#contact" 
+            className="inline-flex items-center gap-2 bg-roya-primary text-white px-6 py-3 rounded-full font-medium hover:bg-roya-secondary transition-colors"
+          >
+            {t("bookDiscovery")}
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
 
         {/* Mobile Menu Trigger */}
         <button 
@@ -72,6 +75,9 @@ export function Navigation() {
             className="md:hidden bg-white border-t border-border framework-fix"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
+              <div className="flex justify-end">
+                <LanguageSwitcher />
+              </div>
               {navItems.map((item) => (
                 <a 
                   key={item.name} 
@@ -87,7 +93,7 @@ export function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
                 className="inline-flex items-center justify-center gap-2 bg-roya-primary text-white px-6 py-3 rounded-full font-medium mt-4"
               >
-                Book a Discovery Call
+                {t("bookDiscovery")}
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>

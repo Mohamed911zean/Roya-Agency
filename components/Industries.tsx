@@ -17,27 +17,30 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel"
-
-const industries = [
-  { name: "Ecommerce", icon: ShoppingBag, desc: "Stores built to sell" },
-  { name: "Real Estate", icon: Home, desc: "Listings that close deals" },
-  { name: "Restaurants", icon: UtensilsCrossed, desc: "Brands people crave" },
-  { name: "Hospitality", icon: Hotel, desc: "Experiences worth booking" },
-  { name: "Startups", icon: Rocket, desc: "Launches with momentum" },
-  { name: "Service Businesses", icon: Briefcase, desc: "Clients on autopilot" },
-  { name: "Personal Brands", icon: UserCircle2, desc: "Influence that converts" },
-  { name: "Corporate Companies", icon: Building2, desc: "Authority at scale" },
-]
+import { useTranslations } from "next-intl"
 
 export function Industries() {
+  const t = useTranslations("industries")
+  const industries = t.raw("list")
+  const iconMap: Record<string, any> = {
+    "ShoppingBag": ShoppingBag,
+    "UtensilsCrossed": UtensilsCrossed,
+    "Hotel": Hotel,
+    "Rocket": Rocket,
+    "Briefcase": Briefcase,
+    "UserCircle2": UserCircle2,
+    "Building2": Building2,
+    "Home": Home
+  }
+
   return (
     <section id="industries" className="py-24 bg-bg-secondary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-roya-primary/10 text-roya-primary rounded-full text-sm font-medium mb-6">
-            Who We Work With
+            {t("tag")}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-roya-primary">Industries We Serve</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-roya-primary">{t("title")}</h2>
         </div>
 
         <Carousel
@@ -45,11 +48,11 @@ export function Industries() {
           className="w-full"
         >
           <CarouselContent>
-            {industries.map((industry) => {
-              const Icon = industry.icon
+            {industries.map((industry: any, index: number) => {
+              const Icon = iconMap[industry.icon] || ShoppingBag
               return (
                 <CarouselItem
-                  key={industry.name}
+                  key={index}
                   className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
                 >
                   <div className="p-1.5">

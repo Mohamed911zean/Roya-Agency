@@ -10,47 +10,14 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react"
-
-const journey = [
-  {
-    icon: MousePointerClick,
-    title: "Traffic",
-    desc: "Strategic campaigns designed to attract qualified prospects.",
-  },
-  {
-    icon: Users,
-    title: "Leads",
-    desc: "Conversion-focused funnels that turn visitors into opportunities.",
-  },
-  {
-    icon: Globe,
-    title: "Digital Experience",
-    desc: "Custom websites and systems built around business goals.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth",
-    desc: "Optimization, analytics, and continuous improvement.",
-  },
-]
-
-const traditionalAgency = [
-  "Marketing handled separately",
-  "Template-based websites",
-  "Multiple vendors involved",
-  "Communication gaps",
-  "Disconnected customer journey",
-]
-
-const partnership = [
-  "Unified strategy & execution",
-  "Custom-built digital products",
-  "One team from start to finish",
-  "Direct communication",
-  "Conversion-focused ecosystem",
-]
+import { useTranslations } from "next-intl"
 
 export function Partnership() {
+  const t = useTranslations("partnership")
+  const journey = t.raw("journey")
+  const traditionalAgency = t.raw("traditionalList")
+  const partnership = t.raw("partnershipList")
+
   return (
     <section className="relative overflow-hidden py-24 bg-[#0B1020]">
       {/* Background */}
@@ -63,22 +30,20 @@ export function Partnership() {
         {/* Badge */}
         <div className="flex justify-center mb-6">
           <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/80 text-sm">
-            Strategic Partnership
+            {t("badge")}
           </div>
         </div>
 
         {/* Hero */}
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-            Where Marketing
-            <span className="text-indigo-400"> Meets </span>
-            Technology
+            {t("title1")}
+            <span className="text-indigo-400"> {t("title2")} </span>
+            {t("title3")}
           </h2>
 
           <p className="mt-6 text-lg md:text-xl text-zinc-400 leading-relaxed">
-            Roya Agency and Reactech work as one integrated team to build
-            campaigns, websites, funnels, and digital systems that help
-            businesses grow faster and convert better.
+            {t("description")}
           </p>
         </div>
 
@@ -89,14 +54,14 @@ export function Partnership() {
             whileHover={{ y: -5 }}
             className="w-full md:w-[320px] h-[160px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center"
           >
-            <img src="\Roya-Agency-logo-no-bg-removebg-preview.png" alt="Roya-Agency-logo" />
+            <img src="/Roya-Agency-logo-no-bg-removebg-preview.png" alt="Roya-Agency-logo" />
           </motion.div>
 
           <div className="flex flex-col items-center">
             <div className="hidden md:block w-24 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent" />
 
             <div className="my-3 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">
-              Strategic Partnership
+              {t("badge")}
             </div>
 
             <div className="hidden md:block w-24 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent" />
@@ -106,7 +71,7 @@ export function Partnership() {
             whileHover={{ y: -5 }}
             className="w-full md:w-[320px] h-[160px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm flex items-center justify-center"
           >
-           <img src="\reactech-logo-no-bg.png" alt="Reactech-logo" />
+           <img src="/reactech-logo-no-bg.png" alt="Reactech-logo" />
           </motion.div>
         </div>
 
@@ -114,22 +79,21 @@ export function Partnership() {
         <div className="mt-24">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white">
-              From First Click To Final Sale
+              {t("journeyTitle")}
             </h3>
 
             <p className="text-zinc-400 mt-4">
-              Every stage of the customer journey is designed and optimized by
-              one unified team.
+              {t("journeySubtitle")}
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
-            {journey.map((item, index) => {
+            {journey.map((item: any, index: number) => {
               const Icon = item.icon
 
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -138,7 +102,10 @@ export function Partnership() {
                   className="rounded-3xl border border-white/10 bg-white/5 p-6"
                 >
                   <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-5">
-                    <Icon className="w-7 h-7 text-indigo-400" />
+                    {item.icon === "MousePointerClick" && <MousePointerClick className="w-7 h-7 text-indigo-400" />}
+                    {item.icon === "Users" && <Users className="w-7 h-7 text-indigo-400" />}
+                    {item.icon === "Globe" && <Globe className="w-7 h-7 text-indigo-400" />}
+                    {item.icon === "TrendingUp" && <TrendingUp className="w-7 h-7 text-indigo-400" />}
                   </div>
 
                   <h4 className="text-white font-semibold text-lg mb-2">
@@ -159,13 +126,13 @@ export function Partnership() {
 
           <div className="rounded-3xl border border-red-500/10 bg-white/5 p-8">
             <h3 className="text-2xl font-bold text-white mb-6">
-              Traditional Agencies
+              {t("traditionalTitle")}
             </h3>
 
             <div className="space-y-4">
-              {traditionalAgency.map((item) => (
+              {traditionalAgency.map((item: string, index: number) => (
                 <div
-                  key={item}
+                  key={index}
                   className="flex items-center gap-3 text-zinc-400"
                 >
                   <XCircle className="w-5 h-5 text-red-400" />
@@ -177,13 +144,13 @@ export function Partnership() {
 
           <div className="rounded-3xl border border-indigo-500/20 bg-indigo-500/[0.04] p-8">
             <h3 className="text-2xl font-bold text-white mb-6">
-              Roya × Reactech
+              {t("partnershipTitle")}
             </h3>
 
             <div className="space-y-4">
-              {partnership.map((item) => (
+              {partnership.map((item: string, index: number) => (
                 <div
-                  key={item}
+                  key={index}
                   className="flex items-center gap-3 text-zinc-300"
                 >
                   <CheckCircle2 className="w-5 h-5 text-indigo-400" />
@@ -201,19 +168,18 @@ export function Partnership() {
           <div className="max-w-3xl mx-auto rounded-[32px] border border-white/10 bg-white/5 p-10">
 
             <h3 className="text-3xl md:text-4xl font-bold text-white">
-              Ready To Scale Smarter?
+              {t("ctaTitle")}
             </h3>
 
             <p className="text-zinc-400 mt-4 text-lg">
-              Work with a team that handles strategy, marketing, design,
-              development, and optimization under one roof.
+              {t("ctaDescription")}
             </p>
 
             <a
               href="#contact"
               className="inline-flex items-center gap-2 mt-8 bg-indigo-500 hover:bg-indigo-600 transition-colors text-white px-7 py-4 rounded-full font-semibold"
             >
-              Book a Discovery Call
+              {t("ctaButton")}
               <ArrowRight className="w-4 h-4" />
             </a>
 

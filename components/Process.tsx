@@ -2,18 +2,12 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight, ArrowDown } from "lucide-react"
-
-const processSteps = [
-  { step: "01", title: "Discovery", desc: "Understanding your brand, goals, and market position." },
-  { step: "02", title: "Research", desc: "Analyzing competitors, audience, and opportunities." },
-  { step: "03", title: "Strategy", desc: "Building a roadmap tailored to your growth targets." },
-  { step: "04", title: "Planning", desc: "Mapping content, campaigns, and timelines." },
-  { step: "05", title: "Execution", desc: "Bringing the strategy to life across channels." },
-  { step: "06", title: "Optimization", desc: "Refining based on real performance data." },
-  { step: "07", title: "Growth", desc: "Scaling what works, consistently." },
-]
+import { useTranslations } from "next-intl"
 
 export function Process() {
+  const t = useTranslations("process")
+  const processSteps = t.raw("steps")
+
   return (
     <section className="py-24 bg-[#09090b] overflow-hidden relative">
 
@@ -31,14 +25,14 @@ export function Process() {
             </div>
       <div className="max-w-7xl mx-auto px-6">
         <span className="inline-block px-4 py-2 bg-[#FDF5E6] text-roya-primary rounded-full text-sm font-medium mb-6">
-          How We Work
+          {t("tag")}
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#FDF5E6] mb-16">Our Process</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-[#FDF5E6] mb-16">{t("title")}</h2>
 
         {/* Desktop / tablet: horizontal flow with connecting arrows */}
         <div className="hidden md:flex items-start justify-between gap-2">
-          {processSteps.map((step, idx) => (
-            <div key={step.step} className="flex items-start flex-1 min-w-0">
+          {processSteps.map((step: any, idx: number) => (
+            <div key={idx} className="flex items-start flex-1 min-w-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -46,8 +40,8 @@ export function Process() {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className="flex flex-col items-center text-center px-2"
               >
-                <div className="w-16 h-16 mb-4 rounded-full  flex items-center justify-center relative">
-                  <span className="text-xl font-bold text-[#FDF5E6]imary">{step.step}</span>
+                <div className="w-16 h-16 mb-4 rounded-full flex items-center justify-center relative">
+                  <span className="text-xl font-bold text-[#FDF5E6]">{step.step}</span>
                 </div>
                 <p className="font-semibold text-[#FDF5E6] mb-1">{step.title}</p>
                 <p className="text-xs text-text-secondary leading-relaxed">{step.desc}</p>
@@ -70,8 +64,8 @@ export function Process() {
 
         {/* Mobile: vertical flow with connecting arrows */}
         <div className="md:hidden flex flex-col items-center">
-          {processSteps.map((step, idx) => (
-            <div key={step.step} className="flex flex-col items-center w-full">
+          {processSteps.map((step: any, idx: number) => (
+            <div key={idx} className="flex flex-col items-center w-full">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

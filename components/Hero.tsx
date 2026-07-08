@@ -13,8 +13,11 @@ import {
   Layers,
   ArrowUpRight
 } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function Hero() {
+  const t = useTranslations("hero")
+
   return (
     <section 
       className="relative min-h-screen w-full bg-[#09090b] text-gray-200 overflow-hidden flex flex-col justify-between selection:bg-indigo-950 selection:text-indigo-200 font-sans antialiased"
@@ -43,16 +46,16 @@ export function Hero() {
           {/* Subtle Tag */}
           <div className="inline-flex items-center gap-2 bg-gray-900/80 border border-gray-800 px-3.5 py-1 rounded-full w-fit">
             <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-            <span className="text-[11px] font-medium tracking-wider text-gray-400 uppercase">Performance & Growth</span>
+            <span className="text-[11px] font-medium tracking-wider text-gray-400 uppercase">{t("tag")}</span>
           </div>
 
           {/* Strong, Minimal Typography */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
-              We build digital systems that <span className="text-indigo-400 font-semibold">drive scale.</span>
+              {t("title")} <span className="text-indigo-400 font-semibold">{t("titleHighlight")}</span>
             </h1>
             <p className="text-sm sm:text-base text-gray-400 font-normal max-w-lg leading-relaxed">
-              A premium performance agency optimizing marketing, branding, and conversion engineering for modern ambitious businesses.
+              {t("description")}
             </p>
           </div>
 
@@ -63,7 +66,7 @@ export function Hero() {
                 href="#contact"
                 className="group inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs px-6 py-3.5 rounded-lg transition-colors duration-200 text-center"
               >
-                Start Your Project
+                {t("cta1")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
 
@@ -71,7 +74,7 @@ export function Hero() {
                 href="#discovery"
                 className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800 font-medium text-xs px-6 py-3.5 rounded-lg transition-colors duration-200 text-center"
               >
-                Book Discovery Call
+                {t("cta2")}
               </a>
             </div>
 
@@ -83,20 +86,18 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-[11px] text-gray-500 font-medium">
-                Trusted by high-growth software & ecommerce companies.
+                {t("trustText")}
               </p>
             </div>
           </div>
 
           {/* Premium Clean Badges */}
           <div className="space-y-2.5 pt-2">
-            <h2 className="text-[10px] font-bold tracking-wider text-gray-600 uppercase">Expertise Ecosystem</h2>
+            <h2 className="text-[10px] font-bold tracking-wider text-gray-600 uppercase">{t("expertiseTitle")}</h2>
             <div className="flex flex-wrap gap-1.5">
-              {[
-                "Google Ads", "Meta Ads", "Growth SEO", "Brand Strategy", "Web Engineering", "Data Analytics"
-              ].map((badge) => (
+              {t.raw("expertise").map((badge: string, index: number) => (
                 <span
-                  key={badge}
+                  key={index}
                   className="px-3 py-1 bg-gray-950 border border-gray-900 rounded-md text-[11px] font-medium text-gray-400 cursor-default"
                 >
                   {badge}
@@ -127,7 +128,7 @@ export function Hero() {
             {/* Metrics Header */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
-                <p className="text-[10px] font-medium uppercase tracking-wider text-gray-500">Net Revenue Attributed</p>
+                <p className="text-[10px] font-medium uppercase tracking-wider text-gray-500">{t("analytics.label")}</p>
                 <div className="flex items-baseline gap-2 mt-0.5">
                   <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white">$1,429,400</span>
                   <span className="text-[11px] font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">
@@ -139,12 +140,12 @@ export function Hero() {
               {/* Minimalist Cards Info */}
               <div className="flex items-center gap-2">
                 <div className="bg-gray-950 px-3 py-2 rounded-lg border border-gray-900 text-left min-w-[80px]">
-                  <p className="text-[9px] uppercase text-gray-500 font-medium">ROAS</p>
-                  <p className="text-xs font-bold text-gray-300">7.2x</p>
+                  <p className="text-[9px] uppercase text-gray-500 font-medium">{t("analytics.roasLabel")}</p>
+                  <p className="text-xs font-bold text-gray-300">{t("analytics.roasValue")}</p>
                 </div>
                 <div className="bg-gray-950 px-3 py-2 rounded-lg border border-gray-900 text-left min-w-[80px]">
-                  <p className="text-[9px] uppercase text-gray-500 font-medium">Conversion</p>
-                  <p className="text-xs font-bold text-gray-300">24.3%</p>
+                  <p className="text-[9px] uppercase text-gray-500 font-medium">{t("analytics.conversionLabel")}</p>
+                  <p className="text-xs font-bold text-gray-300">{t("analytics.conversionValue")}</p>
                 </div>
               </div>
             </div>
@@ -181,17 +182,17 @@ export function Hero() {
             {/* Bottom 3-Column Mini Metrics Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="bg-gray-950/60 border border-gray-900 rounded-lg p-3">
-                <span className="text-[9px] font-medium text-gray-500 uppercase block">Monthly Traffic</span>
-                <span className="text-base font-bold text-gray-200 mt-0.5 block">384,190</span>
+                <span className="text-[9px] font-medium text-gray-500 uppercase block">{t("analytics.trafficLabel")}</span>
+                <span className="text-base font-bold text-gray-200 mt-0.5 block">{t("analytics.trafficValue")}</span>
               </div>
               <div className="bg-gray-950/60 border border-gray-900 rounded-lg p-3">
-                <span className="text-[9px] font-medium text-gray-500 uppercase block">Performance Index</span>
-                <span className="text-base font-bold text-emerald-400 mt-0.5 block">98/100</span>
+                <span className="text-[9px] font-medium text-gray-500 uppercase block">{t("analytics.performanceLabel")}</span>
+                <span className="text-base font-bold text-emerald-400 mt-0.5 block">{t("analytics.performanceValue")}</span>
               </div>
               <div className="bg-gray-950/60 border border-gray-900 rounded-lg p-3 flex items-center justify-between">
                 <div>
-                  <span className="text-[9px] font-medium text-gray-500 uppercase block">Security Auditing</span>
-                  <span className="text-xs font-semibold text-gray-400 mt-0.5 block">Verified</span>
+                  <span className="text-[9px] font-medium text-gray-500 uppercase block">{t("analytics.securityLabel")}</span>
+                  <span className="text-xs font-semibold text-gray-400 mt-0.5 block">{t("analytics.securityValue")}</span>
                 </div>
                 <div className="w-2 h-2 rounded-full bg-emerald-500" />
               </div>
@@ -206,18 +207,12 @@ export function Hero() {
           <div className="animate-marquee-slow flex items-center gap-12 text-[10px] font-medium tracking-widest text-gray-500 uppercase select-none">
             {[...Array(4)].map((_, containerIdx) => (
               <React.Fragment key={containerIdx}>
-                <span>Performance Marketing</span>
-                <span className="text-gray-800">•</span>
-                <span>Brand Identity</span>
-                <span className="text-gray-800">•</span>
-                <span>Growth Systems</span>
-                <span className="text-gray-800">•</span>
-                <span>Web Engineering</span>
-                <span className="text-gray-800">•</span>
-                <span>Paid Media</span>
-                <span className="text-gray-800">•</span>
-                <span>Analytics</span>
-                <span className="text-gray-800">•</span>
+                {t.raw("ticker").map((item: string, idx: number) => (
+                  <React.Fragment key={`${containerIdx}-${idx}`}>
+                    <span>{item}</span>
+                    {idx < t.raw("ticker").length - 1 && <span className="text-gray-800">•</span>}
+                  </React.Fragment>
+                ))}
               </React.Fragment>
             ))}
           </div>

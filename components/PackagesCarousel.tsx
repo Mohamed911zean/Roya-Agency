@@ -9,64 +9,12 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel"
-
-const packages = [
-  {
-    name: "Start Plan",
-    price: "6000",
-    originalPrice: "7500", // سعر تقديري لحساب الخصم تلقائياً
-    description: "Essential social media presence for small businesses",
-    popular: false,
-    badge: null,
-    budget: "Sponsored ads budget is not included",
-    features: [
-      "4 Social Media Posts",
-      "2 Stories",
-      "6 AI-Generated Posts",
-      "1 Reels Video",
-      "Content Writing",
-      "Page Management",
-    ],
-  },
-  {
-    name: "ViP Plan",
-    price: "16000",
-    originalPrice: "20000", // سعر تقديري لحساب الخصم تلقائياً
-    description: "Maximum growth and complete digital dominance",
-    popular: true,
-    badge: "Most Popular",
-    budget: "Sponsored ads budget is not included",
-    features: [
-      "12 Social Media Posts",
-      "6 Stories",
-      "18 AI-Generated Posts",
-      "3 Reels Videos",
-      "Content Writing",
-      "Page Management",
-      "Free 2,000 Followers Bonus",
-    ],
-  },
-  {
-    name: "Gold Plan",
-    price: "11000",
-    originalPrice: "14000", // سعر تقديري لحساب الخصم تلقائياً
-    description: "Advanced package for growing brands and active accounts",
-    popular: false,
-    badge: "Business Choice",
-    budget: "Sponsored ads budget is not included",
-    features: [
-      "8 Social Media Posts",
-      "4 Stories",
-      "12 AI-Generated Posts",
-      "2 Reels Videos",
-      "Content Writing",
-      "Page Management",
-      "Free 1,000 Followers Bonus",
-    ],
-  },
-]
+import { useTranslations } from "next-intl"
 
 export function PackagesCarousel() {
+  const t = useTranslations("packagesSection")
+  const packages = t.raw("list")
+
   return (
     <section id="packages" className="py-24 bg-[#09090b] relative overflow-hidden">
       
@@ -94,14 +42,14 @@ export function PackagesCarousel() {
         {/* Header Section */}
         <div className="text-center mb-4">
           <span className="inline-block px-3.5 py-1 bg-gray-900 border border-gray-800 text-gray-400 rounded-full text-xs font-medium mb-6 uppercase tracking-wider">
-            Limited-Time Pricing
+            {t("badge")}
           </span>
         </div>
         <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-4 tracking-tight">
-          Our Packages
+          {t("title")}
         </h2>
         <p className="text-sm md:text-base text-gray-400 text-center mb-16 max-w-xl mx-auto leading-relaxed">
-          Transparent pricing, real value. Pick the plan that matches where your business is headed.
+          {t("subtitle")}
         </p>
 
         {/* --- CAROUSEL SYSTEM --- */}
@@ -109,11 +57,11 @@ export function PackagesCarousel() {
         <div className="relative w-full md:px-12">
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             
-            {/* items-stretch تضمن تمدد الكروت لارتفاع موحد هندسياً */}
+            {/* items-stretch تضمن تمدد الكروت لارتفاع موحد هندسيًّا */}
             <CarouselContent className="-ml-4 flex items-stretch">
-              {packages.map((pkg) => (
+              {packages.map((pkg: any, index: number) => (
                 <CarouselItem 
-                  key={pkg.name} 
+                  key={index}
                   className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 flex"
                 >
                   <div className="w-full pb-2 pt-4 flex">
@@ -148,13 +96,13 @@ export function PackagesCarousel() {
                           <span className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
                             {pkg.price}
                           </span>
-                          <span className="text-xs text-gray-500 font-medium">EGP/mo</span>
+                          <span className="text-xs text-gray-500 font-medium">{t("currency")}/{t("period")}</span>
                         </div>
 
                         <div className="flex items-center gap-2 mt-1.5">
-                          <span className="text-xs text-gray-600 line-through">{pkg.originalPrice} EGP</span>
+                          <span className="text-xs text-gray-600 line-through">{pkg.originalPrice} {t("currency")}</span>
                           <span className="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-1.5 py-0.5 rounded">
-                            Save {Math.round((1 - Number(pkg.price) / Number(pkg.originalPrice)) * 100)}%
+                            {t("save")} {Math.round((1 - Number(pkg.price) / Number(pkg.originalPrice)) * 100)}%
                           </span>
                         </div>
                         <p className="text-xs text-gray-400 mt-3 min-h-[32px] line-clamp-2 leading-relaxed">
@@ -164,8 +112,8 @@ export function PackagesCarousel() {
 
                       {/* Features List (flex-grow تملأ المساحة لتدفع بقية العناصر للأسفل وتوحد المحاذاة) */}
                       <ul className="space-y-3 mb-6 flex-grow">
-                        {pkg.features.map((feature) => (
-                          <li key={feature} className="flex items-start gap-2.5">
+                        {pkg.features.map((feature: string, idx: number) => (
+                          <li key={idx} className="flex items-start gap-2.5">
                             <div className="w-4 h-4 mt-0.5 rounded-full bg-indigo-500/10 flex items-center justify-center flex-shrink-0">
                               <Check className="w-2.5 h-2.5 text-indigo-400" strokeWidth={3} />
                             </div>
@@ -179,7 +127,7 @@ export function PackagesCarousel() {
                         {pkg.budget && (
                           <div className="p-3 rounded-xl bg-gray-950 border border-gray-900">
                             <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wider mb-0.5">
-                              Recommended Ad Budget
+                              {t("recommendedBudget")}
                             </p>
                             <p className="text-xs font-semibold text-gray-200">
                               {pkg.budget}
@@ -197,7 +145,7 @@ export function PackagesCarousel() {
                               : "bg-gray-900 hover:bg-gray-800 text-gray-200 border border-gray-800"
                           )}
                         >
-                          Get Started
+                          {t("ctaText")}
                         </a>
                       </div>
                     </div>
@@ -207,7 +155,7 @@ export function PackagesCarousel() {
             </CarouselContent>
 
             {/* --- SIDE CONTROLLERS --- */}
-            {/* الأزرار متموضعة في منتصف الكاروسيل عمودياً وتظهر في الشاشات المتوسطة والكبيرة فقط */}
+            {/* الأزرار متموضعة في منتصف الكاروسيل عموديًّا وتظهر في الشاشات المتوسطة والكبيرة فقط */}
             <div className=" md:block">
               <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 -left-4 w-10 h-10 bg-[#0e0e11] hover:bg-gray-900 text-gray-300 border border-gray-800 hover:text-white shadow-md transition-all rounded-full z-30" />
               <CarouselNext className="absolute top-1/2 -translate-y-1/2 -right-4 w-10 h-10 bg-[#0e0e11] hover:bg-gray-900 text-gray-300 border border-gray-800 hover:text-white shadow-md transition-all rounded-full z-30" />
@@ -216,7 +164,7 @@ export function PackagesCarousel() {
         </div>
 
         <p className="text-center text-gray-500 text-xs mt-12">
-          All plans are billed monthly. Cancel or upgrade anytime — no long-term contracts.
+          {t("note")}
         </p>
       </div>
     </section>
