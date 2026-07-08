@@ -4,8 +4,8 @@ import "../globals.css";
 import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { isLocale } from "@/i18n/request";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { isLocale, locales } from "@/i18n/locales";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   description: "Proffisinal Marketing Agency",
 };
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -34,6 +38,7 @@ export default async function RootLayout({
   const { locale } = await params;
   // Validate that the incoming `locale` parameter is valid
   if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
 
   // Providing all messages to the client
   // side is the easiest way to get started
@@ -55,7 +60,7 @@ export default async function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
       </body>

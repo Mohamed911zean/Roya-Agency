@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "./ui/button"
 import { Globe } from "lucide-react"
-import { locales } from "@/i18n/request";
+import { locales, type Locale } from "@/i18n/locales"
 
 export function LanguageSwitcher() {
   const t = useTranslations("language")
@@ -12,7 +12,7 @@ export function LanguageSwitcher() {
   const router = useRouter()
   const pathname = usePathname()
 
-  const switchLocale = (newLocale: string) => {
+  const switchLocale = (newLocale: Locale) => {
     // Replace the current locale in the pathname
     const segments = pathname.split("/")
     segments[1] = newLocale
